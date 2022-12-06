@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware('auth')
+    ->namespace('Admin')
+    ->name('admin.')
+    ->prefix('admin')
+    ->group(function(){
+        Route::get('/', 'HomeController@index')->name('index');
+        // Route::resource('posts', 'PostController')->parameters(['posts' => 'post:slug']);
+        // Route::resource('categories', 'CategoryController')->parameters(['categories' => 'category:slug']);
+        // Route::resource('tags', 'TagController')->parameters(['tags' => 'tag:slug']);
+});
