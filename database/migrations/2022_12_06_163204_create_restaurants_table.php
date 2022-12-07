@@ -21,6 +21,7 @@ class CreateRestaurantsTable extends Migration
             $table->string('image')->nullable(true);
             $table->string('address')->nullable(false);
             $table->timestamps();
+            //TODO: carica immagini sul database
         });
     }
 
