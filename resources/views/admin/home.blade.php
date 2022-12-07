@@ -1,4 +1,4 @@
     @extends('layouts.dashboard')
-    @section('content')
+    {{-- @section('content')
         
-    @endsection
+    @endsection --}}
