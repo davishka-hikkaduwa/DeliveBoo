@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('welcome');
 });
-
-Auth::routes();
 
 Route::middleware('auth')
     ->namespace('Admin')
@@ -26,7 +26,7 @@ Route::middleware('auth')
     ->prefix('admin')
     ->group(function(){
         Route::get('/', 'HomeController@index')->name('index');
-        // Route::resource('posts', 'PostController')->parameters(['posts' => 'post:slug']);
+        Route::resource('restaurants', 'RestaurantController')->parameters(['restaurants' => 'restaurant:slug']);
         // Route::resource('categories', 'CategoryController')->parameters(['categories' => 'category:slug']);
         // Route::resource('tags', 'TagController')->parameters(['tags' => 'tag:slug']);
 });
